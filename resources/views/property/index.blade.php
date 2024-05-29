@@ -1,7 +1,7 @@
 @extends('components.layout')
 @section('content')
-    <section class="p-8 text-center bg-gradient-to-r from-blue-200 to-blue-500 lg:p-20">
-        <h1 class="mb-2 text-2xl font-bold text-gray-700 lg:text-5xl">
+    <section class="p-8 text-center  lg:p-20" style="background-image: url('{{ asset('/images/white_villa.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <h1 class="mb-2 text-2xl font-bold text-white lg:text-5xl">
             Properties
 
         </h1>
@@ -50,9 +50,9 @@
         @foreach ($properties as $property)
             
             {{-- woning info en kader --}}
-            <div class="mt-2 space-y-2 lg:gap-4 flex  flex-column justify-center items-center flex-wrap ">
+            <div class=" space-y-2 lg:gap-4 flex  flex-column justify-center items-center flex-wrap ">
 
-                <div class="p-4 bg-gray-200 rounded-lg sm:flex sm:flex-column w-full sm:w-auto">
+                <div class="p-4 mt-6 bg-gray-200 rounded-lg sm:flex sm:flex-column w-full sm:w-auto">
                     <img class="rounded-sm w-full h-72 sm:w-64 sm:h-auto mr-3"
                         src="https://images.unsplash.com/photo-1601760562234-9814eea6663a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cmVhbGVzdGF0ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
                         alt="property">
@@ -61,12 +61,12 @@
                     {{-- <div class="flex flex-column"> --}}
 
                     {{-- woningnaam en prijs --}}
-                    <div class=" mt-4 sm:mt-auto sm:px-6 sm:py-1">
+                    <div class=" mt- sm:mt-auto sm:px-6 sm:py-1">
                         <h3 class="text-blue-700 text-lg font-semibold cursor-pointer">{{$property->address}}</h3>
                         <h3 class="text-lg font-medium cursor-pointer">{{$property->postal_code}} {{$property->city}}</h3>
 
                         <div class="mt-2">
-                            <span class="text-lg font-semibold ">€ {{$property->price}} k.k.</span>
+                            <span class="text-lg font-semibold ">€ {{number_format($property->price , 0, ',', '.')}} k.k.</span>
                         </div>
 
                         <div class="flex justify-start gap-8 mt-3 pl-1 text-gray-700 ">

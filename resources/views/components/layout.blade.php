@@ -15,7 +15,7 @@
             <div class="bg-gradient-to-r from-blue-200 to-blue-500" x-data="{ isOpen: false }">
                 <nav class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center">
                     <div class="flex items-center justify-between">
-                        <a class="text-xl font-bold text-gray-800 md:text-2xl hover:text-blue-400" href="#">Real
+                        <a class="text-xl font-bold text-gray-800 md:text-2xl hover:text-blue-400" href="/">Real
                             Estate </a>
                         <!-- Mobile menu button -->
                         <div @click="isOpen = !isOpen" class="flex md:hidden">
