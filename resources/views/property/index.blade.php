@@ -12,35 +12,31 @@
     <!-- property search section -->
     <div class="m-4 lg:m-0">
         <div class="p-8 bg-white lg:flex lg:items-center lg:justify-center">
-            <form class="space-y-4 lg:space-y-0 lg:flex lg:space-x-4 lg:flex-nowrap">
-                <div class="">
-                    <select class="w-full py-2.5 px-8 bg-white border border-gray-400 rounded outline-none focus:ring-2">
-                        <option>Type</option>
-                        <option>Apartment</option>
-                        <option>Apartment</option>
-                        <option>House</option>
-                        <option>Villa</option>
-                        <option>Hotel</option>
+            <form class="space-y-4 lg:space-y-0 lg:flex lg:space-x-4 lg:flex-nowrap" action="{{ route('properties.filter') }}" method="GET">
+                @csrf    
+                <div>
+                    <select name="type" class="w-full py-2.5 px-8 bg-white border border-gray-400 rounded outline-none focus:ring-2">
+                        <option value="">Type</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Residential">Residential</option>
+                        <option value="Villa">Villa</option>
                     </select>
-
                 </div>
                 <div>
-                    <input type="text" class="w-full p-2 border border-gray-400 rounded outline-none focus:ring-2"
-                        Placeholder="Location" />
+                    <input type="text" name="city" value="{{ old('city') }}" class="w-full p-2 border border-gray-400 rounded outline-none focus:ring-2" placeholder="Location" />
                 </div>
                 <div>
-                    <input type="number" class="w-full p-2 border border-gray-400 rounded outline-none focus:ring-2"
-                        placeholder="min" />
+                    <input type="number" name="price_min" value="{{ old('price_min') }}" class="w-full p-2 border border-gray-400 rounded outline-none focus:ring-2" placeholder="min" />
                 </div>
                 <div>
-                    <input type="number" class="w-full p-2 border border-gray-400 rounded outline-none focus:ring-2"
-                        placeholder="max" />
+                    <input type="number" name="price_max" value="{{ old('price_max') }}" class="w-full p-2 border border-gray-400 rounded outline-none focus:ring-2" placeholder="max" />
                 </div>
                 <div>
-                    <button class="px-8 py-2 text-blue-100 bg-gray-600 rounded">
-                        Search</button>
+                    <button type="submit" class="px-8 py-2 text-blue-100 bg-gray-600 rounded">Search</button>
                 </div>
             </form>
+            
+            
         </div>
     </div>
 
@@ -64,6 +60,7 @@
                     <div class=" mt- sm:mt-auto sm:px-6 sm:py-1">
                         <h3 class="text-blue-700 text-lg font-semibold cursor-pointer">{{$property->address}}</h3>
                         <h3 class="text-lg font-medium cursor-pointer">{{$property->postal_code}} {{$property->city}}</h3>
+                        <h3 class="text-lg font-medium cursor-pointer">{{$property->type}}</h3>
 
                         <div class="mt-2">
                             <span class="text-lg font-semibold ">€ {{number_format($property->price , 0, ',', '.')}} k.k.</span>

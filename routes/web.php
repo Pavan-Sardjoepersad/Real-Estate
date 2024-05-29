@@ -11,3 +11,5 @@ Route::get('/', [PropertyController::class, 'show']);
 
 
 Route::get('/properties', [PropertyController::class, 'index']);
+
+Route::get('/properties/filter', [PropertyController::class, 'filterProperties'])->name('properties.filter');

@@ -17,4 +17,21 @@ class PropertyController extends Controller
         $properties = Property::all();
         return view('property.index', ['properties' => $properties]);
     }
+
+    public function filterProperties(Request $request){
+        $type = $request->input('type');
+        $priceRange = [
+            'min' => $request->input('price_min'),
+            'max' => $request->input('price_max'),
+        ];
+        $city = $request->input('city');
+
+        $properties = Property::query()
+            ->type($type)
+            ->price($priceRange)
+            ->city($city)
+            ->get();
+
+        return view('property.index', compact('properties'));    
+    }
 }
