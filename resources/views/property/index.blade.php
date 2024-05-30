@@ -32,7 +32,7 @@
                     <input type="number" name="price_max" value="{{ old('price_max') }}" class="w-full p-2 border border-gray-400 rounded outline-none focus:ring-2" placeholder="max" />
                 </div>
                 <div>
-                    <button type="submit" class="px-8 py-2 text-blue-100 bg-gray-600 rounded">Search</button>
+                    <button type="submit" class="px-8 py-2 text-white bg-blue-500 rounded">Search</button>
                 </div>
             </form>
             
@@ -50,7 +50,7 @@
 
                 <div class="p-4 mt-6 bg-gray-200 rounded-lg sm:flex sm:flex-column w-full sm:w-auto">
                     <img class="rounded-sm w-full h-72 sm:w-64 sm:h-auto mr-3"
-                        src="https://images.unsplash.com/photo-1601760562234-9814eea6663a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cmVhbGVzdGF0ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        src="/images/{{$property->slug}}"
                         alt="property">
 
                     {{--  woning met info --}}
@@ -58,7 +58,9 @@
 
                     {{-- woningnaam en prijs --}}
                     <div class=" mt- sm:mt-auto sm:px-6 sm:py-1">
-                        <h3 class="text-blue-700 text-lg font-semibold cursor-pointer">{{$property->address}}</h3>
+                        <a href="/properties/{{$property->id}}">
+                            <h3 class="text-blue-700 text-lg font-semibold cursor-pointer">{{$property->address}}</h3>
+                        </a>
                         <h3 class="text-lg font-medium cursor-pointer">{{$property->postal_code}} {{$property->city}}</h3>
                         <h3 class="text-lg font-medium cursor-pointer">{{$property->type}}</h3>
 

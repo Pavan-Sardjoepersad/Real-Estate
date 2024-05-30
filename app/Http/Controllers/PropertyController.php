@@ -34,4 +34,9 @@ class PropertyController extends Controller
 
         return view('property.index', compact('properties'));    
     }
+
+    public function singleProperty($id){
+        $property = Property::where('id', $id)->firstOrFail();
+        return view('property.show', compact('property'));
+    }
 }

@@ -45,7 +45,7 @@
 
 
             <section class="p-12 text-center  lg:p-40" style="background-image: url('{{ asset('/images/blue_house_sunset.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                <h1 class="mb-2 text-2xl font-bold text-white mt-36 lg:text-5xl">
+                <h1 class="mb-2 text-2xl font-bold text-white mt-40 sm:mt-36 lg:text-5xl">
                     Find Your Dream House</h1>
 
                 <p class="inline-block p-1 mb-8 mt-4 text-lg text-center bg-black/75 text-white">Your journey to the perfect <span class="text-blue-400">house</span> starts here</p>
@@ -111,14 +111,14 @@
 
                     <div class="p-4 mt-6 bg-gray-200 rounded-lg sm:flex sm:flex-column w-full sm:w-auto">
                         <img class="rounded-sm w-full h-72 sm:w-64 sm:h-auto mr-3"
-                            src="https://images.unsplash.com/photo-1601760562234-9814eea6663a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cmVhbGVzdGF0ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                            src="/images/{{$property->slug}}"
                             alt="property">
 
                         {{--  woning met info --}}
                         {{-- <div class="flex flex-column"> --}}
 
                         {{-- woningnaam en prijs --}}
-                        <div class=" mt- sm:mt-auto sm:px-6 sm:py-1">
+                        <div class=" mt-2 sm:mt-auto sm:px-6 sm:py-1">
                             <h3 class="text-blue-700 text-lg font-semibold cursor-pointer">{{$property->address}}</h3>
                             <h3 class="text-lg font-medium cursor-pointer">{{$property->postal_code}} {{$property->city}}</h3>
 

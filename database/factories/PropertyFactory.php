@@ -16,6 +16,9 @@ class PropertyFactory extends Factory
      */
     public function definition(): array
     {
+        $imageNumber = fake()->numberBetween(1,7);
+        $imageName = "house_{$imageNumber}.jpg";
+
         return [
         'address' => fake()->streetAddress,
         'city' => fake()->city,
@@ -26,12 +29,14 @@ class PropertyFactory extends Factory
         'price' => fake()->numberBetween(150000, 1000000),
         'bedrooms' => fake()->numberBetween(1, 5),
         'bathrooms' => fake()->numberBetween(1, 3),
-        'slug' => fake()->slug,
+        // 'slug' => fake()->slug,
+        'slug' => $imageName,
         'home_sqft' => fake()->numberBetween(65, 200),
         'plot_sqft' => fake()->numberBetween(90, 250),
         'seller' => fake()->name,
         'status' => fake()->randomElement(['sold', 'for sale', 'negotiating', 'rented', 'for rent']),
         'type' => fake()->randomElement(['apartment', 'residential', 'villa']),
+        // 'imageName' => $imageName,
         ];
     }
 }
