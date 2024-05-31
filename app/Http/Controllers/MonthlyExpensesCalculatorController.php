@@ -2,13 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class MonthlyExpensesCalculatorController extends Controller
 {
 
-    public function calculate(Request $request)
+    public function showCalculator($id)
     {
+        // Haal de property gegevens op
+        $property = Property::findOrFail($id);
+
+        // Geef de property gegevens door aan de view
+        return view('property.calculator', compact('property'));
+    }
+
+    public function calculate(Request $request, $id)
+    {
+        $property = Property::findOrFail($id);
         // Validatie van de invoer
         $validated = $request->validate([
             'offer' => 'required|numeric',
@@ -45,6 +56,7 @@ class MonthlyExpensesCalculatorController extends Controller
         $totalMonthlyExpenses = $monthlyMortgagePayment + ($closingCosts / 12);
 
         return view('property.calculator', [
+            'property' => $property,
             'monthly_mortgage_payment' => round($monthlyMortgagePayment, 2),
             'total_monthly_expenses' => round($totalMonthlyExpenses, 2),
             'mortgage' => round($mortgage, 2),

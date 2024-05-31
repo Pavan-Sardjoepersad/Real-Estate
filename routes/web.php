@@ -17,6 +17,10 @@ Route::get('/properties/filter', [PropertyController::class, 'filterProperties']
 
 Route::get('/properties/{id}', [PropertyController::class, 'singleProperty'])->name('property.single');
 
-Route::get('/properties/{id}/calculator', function () {
-    return view('property.calculator');
-})->name('property.calculator');
+// Route::get('/properties/{id}/calculator', function () {
+//     return view('property.calculator');
+// })->name('property.calculator');
+
+Route::get('/properties/{id}/calculator', [MonthlyExpensesCalculatorController::class, 'showCalculator'])->name('property.showCalculator');
+
+Route::post('/properties/{id}/calculate/monthlyexpenses', [MonthlyExpensesCalculatorController::class, 'calculate'])->name('property.calculate');
